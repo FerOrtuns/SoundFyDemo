@@ -99,10 +99,10 @@ public class PlaylistFactory {
 
     }
 
-    // METODOS
+    // METODOS generatePlaylistRndgeneratePlaylistRndgeneratePlaylistRndgeneratePlaylistRnd
 
     public List<Playlist> generatePlaylistRnd(int numberPlaylists) {
-        SoundFy soundFy = new SoundFyImpl();
+       // SoundFy soundFy = new SoundFyImpl();
         List<Playlist> result = new ArrayList<>();
       //  List<Playlist> result = new ArrayList<>(map.get(playlists));
         long id = 0;
@@ -120,15 +120,15 @@ public class PlaylistFactory {
 
             Playlist playlist = new Playlist(id, title, description, comments);
 
-            soundFy.addPlaylist(playlist);
+           // soundFy.addPlaylist(playlist);
 
-
+/*
             TracksFactory tracksSel = new TracksFactory();
             int randomNumber = random.nextInt(10) + 3;
             var tracksPL = tracksSel.generateListTracksRnd(randomNumber);
             for (Track song : tracksPL) {
                 soundFy.addTrackToPlaylist(playlist, song);
-            }
+            }*/
            //  result = map.get(playlist));
 
            //  var handle =  new ArrayList<>(map.get(playlist));
@@ -141,6 +141,8 @@ public class PlaylistFactory {
 
         return result;
     }
+
+    // METODOS RND
 
     private String generateRandomDescription() {
 
@@ -167,9 +169,6 @@ public class PlaylistFactory {
         return comments;
     }
 
-
-
-    // METODOS RND
 
     private String generateRandomTittle() {
         Random random = new Random();
