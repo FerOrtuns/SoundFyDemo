@@ -13,6 +13,110 @@ public class TracksFactory {
     private static final String[] randomWords = {"love", "heart", "time", "dream", "sky", "fire", "dance", "song", "rain", "life",
             "soul", "ocean", "sun", "wind", "star", "hope", "memory", "wish", "freedom", "magic", "to", "the", "an", "my", "for", "us"};
 
+    private static final String[] randomArtists = {
+            "Korn",
+            "Standard Alien",
+            "The Beatles",
+            "Queen",
+            "Led Zeppelin",
+            "Pink Floyd",
+            "Metallica",
+            "Nirvana",
+            "Radiohead",
+            "U2",
+            "The Rolling Stones",
+            "Coldplay",
+            "Red Hot Chili Peppers",
+            "Green Day",
+            "AC/DC",
+            "The Doors",
+            "Guns N' Roses",
+            "Pearl Jam",
+            "Oasis",
+            "Foo Fighters",
+            "Linkin Park",
+            "Blur",
+            "The Who",
+            "Aerosmith",
+            "System of a Down",
+            "Rage Against the Machine",
+            "The Smashing Pumpkins",
+            "The Cure",
+            "Nine Inch Nails",
+            "Eminem",
+            "Drake",
+            "Jay-Z",
+            "Kanye West",
+            "Eagles",
+            "Fleetwood Mac",
+            "ABBA",
+            "Bee Gees",
+            "Elton John",
+            "David Bowie",
+            "Prince",
+            "Michael Jackson",
+            "Madonna",
+            "Britney Spears",
+            "Taylor Swift",
+            "Lady Gaga",
+            "Justin Bieber",
+            "Ariana Grande"
+    };
+
+    private static final String[] randomGenres = {
+            "Rock",
+            "Pop",
+            "Hip Hop",
+            "Rap",
+            "Electronic",
+            "EDM",
+            "House",
+            "Techno",
+            "Trance",
+            "Metal",
+            "Alternative",
+            "Indie",
+            "Jazz",
+            "Blues",
+            "Reggae",
+            "Ska",
+            "Punk",
+            "Country",
+            "Folk",
+            "Classical",
+            "R&B",
+            "Soul",
+            "Funk",
+            "Disco",
+            "Gospel",
+            "Ambient",
+            "New Age",
+            "World",
+            "Latin",
+            "Reggaeton",
+            "Salsa",
+            "Bachata",
+            "Merengue",
+            "Cumbia",
+            "Mariachi",
+            "Flamenco",
+            "J-Pop",
+            "K-Pop",
+            "Rock en Español",
+            "Banda",
+            "Grupero",
+            "Norteño",
+            "Bachata",
+            "Samba",
+            "Bossa Nova",
+            "Fado",
+            "Tango",
+            "Electroswing",
+            "Chillstep"
+    };
+
+    // CONSTRUCTORES
+
     public TracksFactory(List<Track> tracks, Random random) {
         this.tracks = tracks;
         this.random = random;
@@ -52,18 +156,18 @@ public class TracksFactory {
     private List<String> generateRandomArtists() {
         List<String> artists = new ArrayList<>();
 
-        int numArtists = random.nextInt(3) + 1; // Entre 1 y 3 artistas
+        int numArtists = random.nextInt(2) + 1; // Entre 1 y 2 artistas
         for (int i = 0; i < numArtists; i++) {
-            artists.add(TracksFactory.randomWords[random.nextInt(TracksFactory.randomWords.length)]);
+            artists.add(TracksFactory.randomArtists[random.nextInt(TracksFactory.randomArtists.length)]);
         }
         return artists;
     }
 
     private List<String> generateRandomGenres() {
         List<String> genres = new ArrayList<>();
-        int numGenres = random.nextInt(3) + 1; // Entre 1 y 3 géneros
+        int numGenres = random.nextInt(2) + 1; // Entre 1 y 2 géneros
         for (int i = 0; i < numGenres; i++) {
-            genres.add(TracksFactory.randomWords[random.nextInt(TracksFactory.randomWords.length)]);
+            genres.add(TracksFactory.randomGenres[random.nextInt(TracksFactory.randomGenres.length)]);
         }
         return genres;
     }

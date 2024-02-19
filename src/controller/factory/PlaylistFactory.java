@@ -1,18 +1,12 @@
 package controller.factory;
 
-import model.aplication.SoundFy;
-import model.aplication.SoundFyImpl;
 import model.domain.Playlist;
-import model.domain.Track;
 
-import java.time.LocalDate;
 import java.util.*;
 
 public class PlaylistFactory {
 
-    private final Map<Playlist, List<Track>> map = new HashMap<>();
-    private List<Playlist> playlists;
-    private Random random;
+    public final Random random;
     private static final String[] adjectives = {
             "Amazing", "Awesome", "Fantastic", "Incredible", "Excellent", "Great", "Superb", "Wonderful", "Fabulous", "Terrific"
     };
@@ -84,31 +78,24 @@ public class PlaylistFactory {
     // CONSTRUCTORES
 
     public PlaylistFactory(List<Playlist> playlists) {
-        this.playlists = playlists != null ? playlists : new ArrayList<>();
         this.random = new Random();
     }
 
     public PlaylistFactory(List<Playlist> playlists, Random random) {
-        this.playlists = playlists != null ? playlists : new ArrayList<>();
         this.random = random;
     }
 
     public PlaylistFactory() {
         this.random = new Random();
-        this.playlists = new ArrayList<>();
 
     }
 
     // METODOS generatePlaylistRndgeneratePlaylistRndgeneratePlaylistRndgeneratePlaylistRnd
 
     public List<Playlist> generatePlaylistRnd(int numberPlaylists) {
-       // SoundFy soundFy = new SoundFyImpl();
+
         List<Playlist> result = new ArrayList<>();
-      //  List<Playlist> result = new ArrayList<>(map.get(playlists));
         long id = 0;
-     //   random = new Random();
-// List<Playlist> playlists = new ArrayList<>(); // Crea una lista de reproducción vacía
-        // PlaylistFactory playlistFactory = new PlaylistFactory(playlists);
 
         for (int i = 0; i < numberPlaylists; i++) {
             // Generar datos aleatorios para las playlists
@@ -120,7 +107,7 @@ public class PlaylistFactory {
 
             Playlist playlist = new Playlist(id, title, description, comments);
 
-           // soundFy.addPlaylist(playlist);
+            // soundFy.addPlaylist(playlist);
 
 /*
             TracksFactory tracksSel = new TracksFactory();
@@ -129,11 +116,6 @@ public class PlaylistFactory {
             for (Track song : tracksPL) {
                 soundFy.addTrackToPlaylist(playlist, song);
             }*/
-           //  result = map.get(playlist));
-
-           //  var handle =  new ArrayList<>(map.get(playlist));
-
-          //  List<Track> handleTracks = new ArrayList<>(map.get(playlist));
 
             result.add(playlist);
 

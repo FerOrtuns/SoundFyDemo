@@ -7,7 +7,6 @@ import model.aplication.SoundFyImpl;
 import model.domain.Playlist;
 import model.domain.Track;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

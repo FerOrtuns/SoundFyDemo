@@ -21,11 +21,6 @@ public class SoundFyImpl implements SoundFy {
         //return map.putIfAbsent(playlist, new ArrayList<>()) == null;
     }
 
-  /*  @Override
-    public Playlist createPlaylist(long id, String title, String description, List<String> comments) {
-        return new Playlist(id, title, description, comments);
-    }
-*/
     @Override
     public void addTrackToPlaylist(long playlistId, Track track) {
 
@@ -94,7 +89,7 @@ public class SoundFyImpl implements SoundFy {
     @Override
     public List<Playlist> findByGenre(String genre) {
 
-       // List<Playlist> listaResult = new ArrayList<>();
+        // List<Playlist> listaResult = new ArrayList<>();
 
         return map.entrySet()
                 .stream()
