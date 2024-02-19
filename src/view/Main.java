@@ -55,12 +55,11 @@ public class Main {
 
             //ta mal revisar
 
-          /*  var tracksPlist = soundFy.getTracks(playlist); // listamos la playlist
+        /*    var tracksPlist = soundFy.getTracks(playlist); // listamos la playlist
 
             for (Track song : tracksPlist){
                 System.out.println("track" + song);
-            }
-*/
+            }*/
            // tracksPlist.forEach(track -> System.out.println(track));
 
 
