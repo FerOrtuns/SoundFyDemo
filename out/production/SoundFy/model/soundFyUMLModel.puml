@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+ Class Song {
+    + int duration;
+    + String songName;
+    + String lyrics;
+    }
+
+
+ Class Album {
+    + String title;
+    + LocalDate releaseDate;
+    + int numberOfSongs;
+    + int totalDuration;
+    + String coverArt;
+    + List<Song> songs;
+
+}
+
+
+Class Playlist {
+    + String songName;
+    + boolean isPublic;
+}
+
+
+Class Genre {
+    + String name;
+}
+
+class Artist {
+    + String name;
+    + LocalDate birthDate;
+    + String countryOfOrigin;
+    + int numberOfAlbums;
+    + int numberOfSongs;
+    + String biography;
+    + List<Album> albums;
+    + List<Song> songs;
+
+}
+
+Song --> Playlist
+Song "1.*" --> "0.*" Genre
+Song "0.*" --o "0.*" Playlist
+Song "1.*" --* "0.*" Album
+Artist --> Album
+Artist --> Song
+
+
+@enduml

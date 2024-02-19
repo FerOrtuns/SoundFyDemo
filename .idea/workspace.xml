@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcad971-29a9-446a-9b59-628c27bb0726" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="edcad971-29a9-446a-9b59-628c27bb0726" name="Changes" comment="Init project">
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/controller/factory/PlaylistFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/controller/factory/TracksFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/aplication/SoundFy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/aplication/SoundFyImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/domain/Album.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/domain/Artist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/domain/Genre.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/domain/Playlist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/domain/Track.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/model/soundFyUMLModel.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SoundFy/view/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/DAO/TracksData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/factory/PlaylistFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/factory/TracksFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/aplication/SoundFy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/aplication/SoundFyImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/domain/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/domain/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/domain/Genre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/domain/Playlist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/domain/Track.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/soundFyUMLModel.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="e8c0dcd1-b0ae-4b10-889d-82d8b95f77c9" name="borrar" comment="">
       <change beforePath="$PROJECT_DIR$/../../SpiralGIT/StandardAlienSiteGitPro" beforeDir="false" />
@@ -29,9 +50,17 @@
         <entry key="$PROJECT_DIR$/../../SpiralGIT" value="Test1" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../SpiralGIT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />
@@ -61,7 +90,6 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="SoundFy" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -96,8 +124,16 @@
       <workItem from="1707985683814" duration="2003000" />
       <workItem from="1707988809505" duration="30355000" />
       <workItem from="1708354061753" duration="4230000" />
-      <workItem from="1708358390505" duration="725000" />
+      <workItem from="1708358390505" duration="1476000" />
     </task>
+    <task id="LOCAL-00001" summary="Init project">
+      <created>1708359502272</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708359502273</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +166,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="2 commit with test comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 commit with test comment" />
+    <MESSAGE value="Init project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
