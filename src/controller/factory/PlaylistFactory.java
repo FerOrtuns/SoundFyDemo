@@ -6,12 +6,11 @@ import model.domain.Playlist;
 import model.domain.Track;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class PlaylistFactory {
 
+    private final Map<Playlist, List<Track>> map = new HashMap<>();
     private List<Playlist> playlists;
     private Random random;
     private static final String[] adjectives = {
@@ -85,27 +84,29 @@ public class PlaylistFactory {
     // CONSTRUCTORES
 
     public PlaylistFactory(List<Playlist> playlists) {
-        this.playlists = playlists;
+        this.playlists = playlists != null ? playlists : new ArrayList<>();
+        this.random = new Random();
     }
 
     public PlaylistFactory(List<Playlist> playlists, Random random) {
-        this.playlists = playlists;
+        this.playlists = playlists != null ? playlists : new ArrayList<>();
         this.random = random;
     }
 
     public PlaylistFactory() {
         this.random = new Random();
-        this.playlists = playlists;
+        this.playlists = new ArrayList<>();
 
     }
 
     // METODOS
 
     public List<Playlist> generatePlaylistRnd(int numberPlaylists) {
+        SoundFy soundFy = new SoundFyImpl();
         List<Playlist> result = new ArrayList<>();
-        //List<Playlist> result = new ArrayList<>(map.get(playlist));
+      //  List<Playlist> result = new ArrayList<>(map.get(playlists));
         long id = 0;
-        random = new Random();
+     //   random = new Random();
 // List<Playlist> playlists = new ArrayList<>(); // Crea una lista de reproducción vacía
         // PlaylistFactory playlistFactory = new PlaylistFactory(playlists);
 
@@ -119,10 +120,8 @@ public class PlaylistFactory {
 
             Playlist playlist = new Playlist(id, title, description, comments);
 
-            result.add(playlist);
-
-            SoundFy soundFy = new SoundFyImpl();
             soundFy.addPlaylist(playlist);
+
 
             TracksFactory tracksSel = new TracksFactory();
             int randomNumber = random.nextInt(10) + 3;
@@ -130,6 +129,14 @@ public class PlaylistFactory {
             for (Track song : tracksPL) {
                 soundFy.addTrackToPlaylist(playlist, song);
             }
+           //  result = map.get(playlist));
+
+           //  var handle =  new ArrayList<>(map.get(playlist));
+
+          //  List<Track> handleTracks = new ArrayList<>(map.get(playlist));
+
+            result.add(playlist);
+
         }
 
         return result;
@@ -160,7 +167,7 @@ public class PlaylistFactory {
         return comments;
     }
 
-    ;
+
 
     // METODOS RND
 

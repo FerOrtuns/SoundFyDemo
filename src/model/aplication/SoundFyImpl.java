@@ -13,7 +13,12 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public boolean addPlaylist(Playlist playlist) {
-        return map.putIfAbsent(playlist, new ArrayList<>()) == null;
+
+        if (map.containsKey(playlist)) return false;
+        map.put(playlist, new ArrayList<>());
+
+        return true;
+        //return map.putIfAbsent(playlist, new ArrayList<>()) == null;
     }
 
   /*  @Override
