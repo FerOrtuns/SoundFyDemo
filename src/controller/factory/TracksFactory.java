@@ -91,28 +91,7 @@ public class TracksFactory {
             "Gospel",
             "Ambient",
             "New Age",
-            "World",
-            "Latin",
-            "Reggaeton",
-            "Salsa",
-            "Bachata",
-            "Merengue",
-            "Cumbia",
-            "Mariachi",
-            "Flamenco",
-            "J-Pop",
-            "K-Pop",
-            "Rock en Español",
-            "Banda",
-            "Grupero",
-            "Norteño",
-            "Bachata",
-            "Samba",
-            "Bossa Nova",
-            "Fado",
-            "Tango",
-            "Electroswing",
-            "Chillstep"
+            "World"
     };
 
     // CONSTRUCTORES

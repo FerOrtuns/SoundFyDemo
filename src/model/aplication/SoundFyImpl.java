@@ -40,7 +40,7 @@ public class SoundFyImpl implements SoundFy {
     public void addTrackToPlaylist(Playlist playlist, Track track) {
         if (!map.containsKey(playlist)) {
             // map.put(playlist, new ArrayList<>());
-            throw new IllegalArgumentException("La playlist " + playlist.getId() + " no existe en Spotify");
+            throw new IllegalArgumentException("La playlist " + playlist.getId() + " no existe en SoundFy");
         }
         var tracks = map.get(playlist);
         tracks.add(track);
