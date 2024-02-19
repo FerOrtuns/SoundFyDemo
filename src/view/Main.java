@@ -9,6 +9,7 @@ import model.domain.Track;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Main {
@@ -17,7 +18,7 @@ public class Main {
 
         SoundFy soundFy = new SoundFyImpl();
 
-        TracksFactory tracksF = new TracksFactory();
+     /*   TracksFactory tracksF = new TracksFactory();
 
         var tracksRnd = tracksF.generateListTracksRnd(20);
 
@@ -34,11 +35,8 @@ public class Main {
             System.out.println("Lyrics:\n" + track.getLyrics());
             System.out.println("------------------------------------");
         }
-
-        // ahora creamos las playlists
-       // List<Playlist> playlists = new ArrayList<>(); // Crea una lista de reproducción vacía
-       // PlaylistFactory playlistFactory = new PlaylistFactory(playlists);
-      PlaylistFactory playlistFactory = new PlaylistFactory();
+*/
+        PlaylistFactory playlistFactory = new PlaylistFactory();
 
         var playlistsRND = playlistFactory.generatePlaylistRnd(5);
 
@@ -53,16 +51,31 @@ public class Main {
             System.out.println("Comments: " + playlist.getComments());
             System.out.println("CreationDate: " + playlist.getCreationDate());
 
-            //ta mal revisar
+            soundFy.addPlaylist(playlist);
 
-           /* List<Track> tracksPlist = soundFy.getTracks(playlist); // listamos la playlist
+            TracksFactory tracksSel = new TracksFactory();
+            Random random = new Random();
+            int randomNumber = random.nextInt(10) + 3;
+            var tracksPL = tracksSel.generateListTracksRnd(randomNumber);
+            for (Track song : tracksPL) {
+                soundFy.addTrackToPlaylist(playlist, song);
+            }
 
-            for (Track song : tracksPlist){
-                System.out.println("track" + song);
-            }*/
-           // tracksPlist.forEach(track -> System.out.println(track));
+            List<Track> tracksPlist = soundFy.getTracks(playlist);
 
+            System.out.println("Canciones generadas por factory para cada playlist:");
 
+            for (Track track : tracksPlist) {
+
+                System.out.println("Title: " + track.getTitle());
+                System.out.println("Artists: " + track.getArtists());
+                System.out.println("Genres: " + track.getGenres());
+                System.out.println("Release Date: " + track.getReleaseDate());
+                System.out.println("URL: " + track.getUrl());
+                System.out.println("Duration: " + track.getSeconds() + " seconds");
+                System.out.println("Lyrics:\n" + track.getLyrics());
+                System.out.println("------------------------------------");
+            }
             System.out.println("------------------------------------");
         }
 
