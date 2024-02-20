@@ -103,7 +103,15 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public List<Playlist> findByArtist(String artist) {
-        return null;
+
+        return map.entrySet()
+                .stream()
+                .filter(entry ->
+                        entry.getValue()
+                                .stream()
+                                .anyMatch(track -> track.getArtists().contains(artist)))
+                .map(Map.Entry::getKey)
+                .toList();
     }
 
     @Override
