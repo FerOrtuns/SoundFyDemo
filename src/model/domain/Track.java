@@ -9,6 +9,14 @@ import java.util.List;
 
 public class Track {
 
+    private String title;
+    private List<String> artists;
+    private List<String> genres;
+    private LocalDate releaseDate;
+    private String url;
+    private int seconds;
+    private String lyrics;
+
     public Track(String title, List<String> artists, List<String> genres, LocalDate releaseDate, String url, int seconds, String lyrics) {
         this.title = title;
         this.artists = artists;
@@ -51,11 +59,5 @@ public class Track {
         return url;
     }
 
-    private String title;
-    private List<String> artists;
-    private List<String> genres;
-    private LocalDate releaseDate;
-    private String url;
-    private int seconds;
-    private String lyrics;
+
 }

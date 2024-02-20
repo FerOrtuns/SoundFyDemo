@@ -5,6 +5,9 @@ import model.domain.Track;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 public class SoundFyImpl implements SoundFy {
 
@@ -68,17 +71,31 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public Track findLongestTrack(Playlist playlist) {
-        return null;
+
+        return getTracks(playlist).stream()
+                .max(Comparator.comparing(Track::getSeconds))
+                .orElse(null);
     }
+
 
     @Override
     public Track findShortestTrack(Playlist playlist) {
-        return null;
+
+     /*
+        var list = new ArrayList<>(map.get(playlist));
+        list.sort(Comparator.comparingInt(Track::getSeconds));
+        return list.getLast();
+        */
+        return getTracks(playlist).stream()
+                .min(Comparator.comparing(Track::getSeconds))
+                .orElse(null);
     }
 
     @Override
     public Double getAverageDurationTrack(Playlist playlist) {
-        return null;
+        return getTracks(playlist).stream()
+                .mapToInt(Track::getSeconds).average()
+                .orElse(0);
     }
 
     @Override
@@ -88,8 +105,6 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public List<Playlist> findByGenre(String genre) {
-
-        // List<Playlist> listaResult = new ArrayList<>();
 
         return map.entrySet()
                 .stream()
@@ -121,16 +136,37 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public Set<String> getGenres(Playlist playlist) {
-        return null;
+
+        return getTracks(playlist).stream()
+                .flatMap(trk -> trk.getGenres().stream())
+                .collect(Collectors.toSet());
     }
 
     @Override
     public SortedSet<String> getSortedGenres(Playlist playlist) {
-        return null;
+
+        return new TreeSet<>(getGenres(playlist));
     }
 
     @Override
     public List<String> getTopArtists(Playlist playlist) {
-        return null;
+
+        if (!map.containsKey(playlist)) {
+            // map.put(playlist, new ArrayList<>());
+            throw new IllegalArgumentException("La playlist " + playlist.getId() + " no existe en SoundFy");
+        }
+
+        Map<String, Long> topArtists = getTracks(playlist)
+                .stream()
+                .flatMap(track -> track.getArtists().stream())
+                .collect(groupingBy(artist -> artist, counting()));
+
+        return topArtists.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .map(Map.Entry::getKey)
+                .collect(toList());
+
+
     }
 }
