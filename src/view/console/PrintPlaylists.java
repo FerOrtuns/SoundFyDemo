@@ -1,40 +1,14 @@
-package view.unitTests;
+package view.console;
 
-import controller.factory.PlaylistFactory;
-import controller.factory.TracksFactory;
 import model.aplication.SoundFy;
-import model.aplication.SoundFyImpl;
 import model.domain.Playlist;
 import model.domain.Track;
 
 import java.util.List;
-import java.util.Random;
 
-public class findByGenreUTest {
+public class PrintPlaylists {
 
-
-    public static void main(String[] args) {
-
-        SoundFy soundFy = new SoundFyImpl();
-        PlaylistFactory playlistFactory = new PlaylistFactory();
-
-        var playlistsRND = playlistFactory.generatePlaylistRnd(5);
-        for (Playlist playlist : playlistsRND) {
-            soundFy.addPlaylist(playlist);
-
-            TracksFactory tracksSel = new TracksFactory();
-            Random random = new Random();
-            int randomNumber = random.nextInt(10) + 3;
-            var tracksPL = tracksSel.generateListTracksRnd(randomNumber);
-            for (Track song : tracksPL) {
-                soundFy.addTrackToPlaylist(playlist, song);
-            }
-        }
-        // USANDO METODOS
-
-        var playlists = soundFy.findByGenre("Jazz");
-        System.out.println("playlist con el genero Jazz : ");
-        System.out.println("------------------------------------");
+    public static void printPlaylists(SoundFy soundFy, List<Playlist> playlists) {
 
         for (Playlist playlist : playlists) {
             System.out.println("ID: " + playlist.getId());
