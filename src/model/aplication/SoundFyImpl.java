@@ -24,14 +24,33 @@ public class SoundFyImpl implements SoundFy {
         //return map.putIfAbsent(playlist, new ArrayList<>()) == null;
     }
 
+    //TODO TESTEAR ESTE TRIPLACO
+
     @Override
     public void addTrackToPlaylist(long playlistId, Track track) {
-
+        if (!map.containsKey(playlistId)) {
+            throw new IllegalArgumentException("El ID de la playlist " + playlistId + " no existe en SoundFy");
+        }
+        var playlistID = map.get(playlistId);
+        var tracks = map.get(playlistID);
+        tracks.add(track);
     }
+
+    //TODO TESTEAR ESTE TRIPLACO
 
     @Override
     public void addTrackToPlaylist(long playlistId, int position, Track track) {
+        if (!map.containsKey(playlistId)) {
+            throw new IllegalArgumentException("El ID de la playlist " + playlistId + " no existe en SoundFy");
+        }
+        var playlistID = map.get(playlistId);
 
+        if (position < 0) position = 0;
+        if (position >= getTracks((Playlist) playlistID).size()) position = getTracks((Playlist) playlistID).size();
+
+        var tracks = map.get(playlistID);
+
+        tracks.add(position, track);
     }
 /*
     @Override
@@ -100,7 +119,16 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public List<Playlist> findByDates(LocalDate start, LocalDate end) {
-        return null;
+
+        return map.entrySet()
+                .stream()
+                .filter(entry ->
+                        entry.getValue()
+                                .stream()
+                                .anyMatch(track -> track.getReleaseDate().isBefore(end) &&
+                                        track.getReleaseDate().isAfter(start)))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -131,7 +159,25 @@ public class SoundFyImpl implements SoundFy {
 
     @Override
     public List<Playlist> findByTrackDates(LocalDate start, LocalDate end, String artista) {
-        return null;
+
+        return map.entrySet()
+                .stream()
+                .filter(entry ->
+                        entry.getValue()
+                                .stream()
+                                .anyMatch(track -> track.getArtists().contains(artista) &&
+                                        track.getReleaseDate().isBefore(end) &&
+                                        track.getReleaseDate().isAfter(start)))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        /* return findByDates(start,end).stream().filter(entry ->
+                entry.getValue()
+                        .stream()
+                        .anyMatch(track -> track.getArtists().contains(artista)
+                .map(Map.Entry::getKey)
+                .collect(toList());*/
+
     }
 
     @Override
@@ -166,7 +212,5 @@ public class SoundFyImpl implements SoundFy {
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .map(Map.Entry::getKey)
                 .collect(toList());
-
-
     }
 }
