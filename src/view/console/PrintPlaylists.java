@@ -18,7 +18,7 @@ public class PrintPlaylists {
             System.out.println("CreationDate: " + playlist.getCreationDate());
 
 
-            System.out.println("Canciones generadas por factory para cada playlist:");
+            System.out.println("Tracks :");
             List<Track> tracksPlist = soundFy.getTracks(playlist);
 
             for (Track track : tracksPlist) {
@@ -46,7 +46,7 @@ public class PrintPlaylists {
         System.out.println("CreationDate: " + playlist.getCreationDate());
 
 
-        System.out.println("Canciones generadas por factory para cada playlist:");
+        System.out.println("Tracks :");
         List<Track> tracksPlist = soundFy.getTracks(playlist);
 
         for (Track track : tracksPlist) {

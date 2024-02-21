@@ -8,9 +8,9 @@ import view.console.PrintPlaylists;
 
 import java.util.List;
 
-public class GetTopArtistsUTest {
-
+public class FindLongestTrackUTest {
     public static void main(String[] args) {
+
 
         SoundFy soundFy = new SoundFyImpl();
         InitFactory initFactory = new InitFactory();
@@ -19,10 +19,9 @@ public class GetTopArtistsUTest {
 
         PrintPlaylists.printPlaylists(soundFy, playlistSel);
 
-        var playlist = soundFy.getTopArtists(playlistSel, 5);
+        var playlist = soundFy.findLongestTrack(playlistSel);
 
-        System.out.println("getTopArtists(playlist) : " + playlist.toString());
+        System.out.println("FindLongestTrackUTest(playlist) : " + playlist.toString());
         System.out.println("------------------------------------");
-
     }
 }

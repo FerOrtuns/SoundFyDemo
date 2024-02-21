@@ -8,7 +8,7 @@ import view.console.PrintPlaylists;
 
 import java.util.List;
 
-public class GetTopArtistsUTest {
+public class FindShortestTrackUTest {
 
     public static void main(String[] args) {
 
@@ -19,10 +19,9 @@ public class GetTopArtistsUTest {
 
         PrintPlaylists.printPlaylists(soundFy, playlistSel);
 
-        var playlist = soundFy.getTopArtists(playlistSel, 5);
+        var playlist = soundFy.findShortestTrack(playlistSel);
 
-        System.out.println("getTopArtists(playlist) : " + playlist.toString());
+        System.out.println("FindShortestTrackUTest(playlist) : " + playlist.toString());
         System.out.println("------------------------------------");
-
     }
 }

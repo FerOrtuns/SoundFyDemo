@@ -6,22 +6,22 @@ import model.aplication.SoundFyImpl;
 import model.domain.Playlist;
 import view.console.PrintPlaylists;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public class GetTopArtistsUTest {
+public class FindByTrackDatesUTest {
 
     public static void main(String[] args) {
 
         SoundFy soundFy = new SoundFyImpl();
         InitFactory initFactory = new InitFactory();
-        List<Playlist> playlistsSel = initFactory.initFactoryPlaylists(soundFy, 1);
-        var playlistSel = playlistsSel.get(0);
+        List<Playlist> playlistsSel = initFactory.initFactoryPlaylists(soundFy, 7);
 
-        PrintPlaylists.printPlaylists(soundFy, playlistSel);
 
-        var playlist = soundFy.getTopArtists(playlistSel, 5);
+        var playlist = soundFy.findByTrackDates(LocalDate.of(2010, 01, 01), LocalDate.of(2023, 01, 01), "Standard Alien");
 
-        System.out.println("getTopArtists(playlist) : " + playlist.toString());
+        System.out.println("FindByTrackDatesUTest : ");
+        PrintPlaylists.printPlaylists(soundFy, playlist);
         System.out.println("------------------------------------");
 
     }
