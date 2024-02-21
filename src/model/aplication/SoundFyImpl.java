@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
+
 public class SoundFyImpl implements SoundFy {
 
 
@@ -31,8 +32,10 @@ public class SoundFyImpl implements SoundFy {
         if (!map.containsKey(playlistId)) {
             throw new IllegalArgumentException("El ID de la playlist " + playlistId + " no existe en SoundFy");
         }
-        var playlistID = map.get(playlistId);
+       /* var playlistID = map.get(playlistId);
         var tracks = map.get(playlistID);
+        tracks.add(track);*/
+        List<Track> tracks = map.get(playlistId); // Obtiene directamente la lista de tracks de la playlist
         tracks.add(track);
     }
 
@@ -197,10 +200,10 @@ public class SoundFyImpl implements SoundFy {
     @Override
     public List<String> getTopArtists(Playlist playlist) {
 
-        if (!map.containsKey(playlist)) {
+        /*if (!map.containsKey(playlist)) {
             // map.put(playlist, new ArrayList<>());
             throw new IllegalArgumentException("La playlist " + playlist.getId() + " no existe en SoundFy");
-        }
+        }*/
 
         Map<String, Long> topArtists = getTracks(playlist)
                 .stream()
@@ -213,4 +216,6 @@ public class SoundFyImpl implements SoundFy {
                 .map(Map.Entry::getKey)
                 .collect(toList());
     }
+
+
 }

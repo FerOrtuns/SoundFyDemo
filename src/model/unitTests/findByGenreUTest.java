@@ -3,11 +3,8 @@ package model.unitTests;
 import controller.factory.InitFactory;
 import model.aplication.SoundFy;
 import model.aplication.SoundFyImpl;
-import model.domain.Playlist;
-import model.domain.Track;
 import view.console.PrintPlaylists;
 
-import java.util.List;
 
 public class findByGenreUTest {
 

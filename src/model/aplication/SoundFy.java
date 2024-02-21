@@ -63,6 +63,8 @@ public interface SoundFy {
     // ordenados de mayor a menor por el nivel de participacion en la playlist
     List<String> getTopArtists(Playlist playlist); // artistas mas repetido de la playlist !!  chungo ¡¡¡
 
+   // List<Playlist> getPlaylistByID();
+
    /* Playlist createPlaylist(long id, String title, String description, List<String> comments);
 
     void addTrackToPlaylist(long playlistId, Track track);

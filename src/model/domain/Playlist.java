@@ -23,6 +23,9 @@ public class Playlist implements Comparable<Playlist> {
         this.creationDate = LocalDate.now();
     }
 
+    public long getId() {
+        return id;
+    }
 
     @Override
     public int compareTo(Playlist p) {
