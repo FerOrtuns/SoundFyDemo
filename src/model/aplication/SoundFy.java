@@ -1,6 +1,7 @@
 package model.aplication;
 
 import model.domain.Playlist;
+import model.domain.TopArtists;
 import model.domain.Track;
 
 import java.time.LocalDate;
@@ -61,7 +62,7 @@ public interface SoundFy {
     // una lista de canciones y asu vez tiene su lista de artistas, por tanto hay que explorar todas las playlist
     // de cada una todas las canciones y de cada una todos los artistas. finalmente devolver una lista de artistas
     // ordenados de mayor a menor por el nivel de participacion en la playlist
-    List<String> getTopArtists(Playlist playlist); // artistas mas repetido de la playlist !!  chungo ¡¡¡
+    List<TopArtists> getTopArtists(Playlist playlist, Integer top); // artistas mas repetido de la playlist !!  chungo ¡¡¡
 
    // List<Playlist> getPlaylistByID();
 

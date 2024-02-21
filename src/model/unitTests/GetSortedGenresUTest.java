@@ -8,7 +8,7 @@ import view.console.PrintPlaylists;
 
 import java.util.List;
 
-public class GetTopArtistsUTest {
+public class GetSortedGenresUTest {
 
     public static void main(String[] args) {
 
@@ -21,8 +21,7 @@ public class GetTopArtistsUTest {
 
         var playlist = soundFy.getSortedGenres(playlistSel);
 
-        System.out.println("getTopArtists(playlist) : " + playlist);
-        System.out.println("------------------------------------");
+        System.out.println("GetSortedGenres"+playlist);
 
     }
 }

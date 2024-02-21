@@ -1,6 +1,7 @@
 package model.aplication;
 
 import model.domain.Playlist;
+import model.domain.TopArtists;
 import model.domain.Track;
 
 import java.time.LocalDate;
@@ -197,14 +198,30 @@ public class SoundFyImpl implements SoundFy {
         return new TreeSet<>(getGenres(playlist));
     }
 
-    @Override
-    public List<String> getTopArtists(Playlist playlist) {
+    public List<TopArtists> getTopArtists(Playlist playlist, Integer top) {
 
-        /*if (!map.containsKey(playlist)) {
-            // map.put(playlist, new ArrayList<>());
-            throw new IllegalArgumentException("La playlist " + playlist.getId() + " no existe en SoundFy");
-        }*/
+        return getTracks(playlist)
+                .stream()
+                .flatMap(track -> track.getArtists().stream())
+                .collect(groupingBy(artist -> artist, counting()))
+                .entrySet()
+                .stream()
+                .map(entry -> new TopArtists(entry.getKey(), entry.getValue()))
+                .sorted(Comparator.comparing(TopArtists::occurrence).reversed())
+                .limit(top)
+                .collect(Collectors.toList());
 
+      /*  return getTracks(playlist)
+                .stream()
+                .flatMap(track -> track.getArtists().stream())
+                .collect(groupingBy(artist -> artist, counting()))
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .map(Map.Entry::getKey)
+                .limit(3)
+                .collect(Collectors.toList());*/
+/*
         Map<String, Long> topArtists = getTracks(playlist)
                 .stream()
                 .flatMap(track -> track.getArtists().stream())
@@ -214,8 +231,6 @@ public class SoundFyImpl implements SoundFy {
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .map(Map.Entry::getKey)
-                .collect(toList());
+                .collect(toList());*/
     }
-
-
 }
