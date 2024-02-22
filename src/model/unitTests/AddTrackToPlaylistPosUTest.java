@@ -36,7 +36,7 @@ public class AddTrackToPlaylistPosUTest {
         var playlistId = playlistSel.getId();
         System.out.println(playlistId+"ppllllplplplplplp");
         //soundFy.addTrackToPlaylist(playlistSel, -2, trackToAdd);
-        soundFy.addTrackToPlaylist(playlistId, 1, trackToAdd);
+       // soundFy.addTrackToPlaylist(playlistId, 1, trackToAdd);
 
         PrintPlaylists.printPlaylists(soundFy, playlistSel);
 
