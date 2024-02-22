@@ -20,10 +20,10 @@ import java.util.SortedSet;
 public interface SoundFy {
 
  //   Playlist createPlaylist(long id, String title, String description, List<String> comments);
-
+/*
     void addTrackToPlaylist(long playlistId, Track track);
 
-    void addTrackToPlaylist(long playlistId, int position, Track track);
+    void addTrackToPlaylist(long playlistId, int position, Track track);*/
 
    // List<Track> getTracks(long playlistId);
 
